@@ -1851,7 +1851,7 @@ func extractClassName(someObject: Any) -> String {
 /// - parameter message:  The message to include in the exception (why it occurred)
 /// - parameter userInfo: A dictionary with arbitrary info to be passed along with the exception
 func _try(tryClosure: () -> (), catch catchClosure: (exception: NSException) -> (), finally finallyClosure: () -> () = {}) {
-    _try(tryClosure, catchClosure, finallyClosure)
+    _try(tryClosure, catch: catchClosure, finally: finallyClosure)
 }
 
 /// Throw an Objective-C exception with the specified name/message/info
@@ -1860,5 +1860,5 @@ func _try(tryClosure: () -> (), catch catchClosure: (exception: NSException) -> 
 /// - parameter message:  The message to include in the exception (why it occurred)
 /// - parameter userInfo: A dictionary with arbitrary info to be passed along with the exception
 func _throw(name: String, message: String? = nil, userInfo: [NSObject: AnyObject]? = nil) {
-    _throw(NSException(name: name, reason: message ?? name, userInfo: userInfo))
+    //_throw(NSException(name: name, reason: message ?? name, userInfo: userInfo))
 }
